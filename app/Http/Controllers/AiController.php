@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use OpenAI;
+use \OpenAI;
 
 class AiController extends Controller
 {
     public function index() {
-        $yourApiKey = "getenv('YOUR_API_KEY')";
-        $client = OpenAI::client($yourApiKey);
+        // $yourApiKey = config('OPEN_AI_KEY');
+        $client = OpenAI::client(env("OPEN_AI_KEY"));
 
         $result = $client->completions()->create([
             'model' => 'text-davinci-003',

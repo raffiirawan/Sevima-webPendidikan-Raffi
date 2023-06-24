@@ -8,7 +8,7 @@ use OpenAI;
 class AiController extends Controller
 {
     public function index() {
-        $yourApiKey = "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";
+        $yourApiKey = "getenv('YOUR_API_KEY')";
         $client = OpenAI::client($yourApiKey);
 
         $result = $client->completions()->create([
